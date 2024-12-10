@@ -1,0 +1,185 @@
+<!-- HTML: for PassionTextEditor -->
+<!-- ==================================================================================== -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>PassionTextEditor</title>
+
+    <!-- style sheet linkage -->
+    <link rel="stylesheet" href="passiontexteditorstyle.css">
+
+</head>
+
+<body id="body">
+
+    <div class="editor-screen" id="editor-screen">
+        <div class="title-bar" id="title-bar">
+
+            <span class="menu">
+                <!-- file menu -->
+                <div class="menu-item" onclick="toggleDropdown('fileMenu')">File
+                    <div class="dropdown" id="fileMenu">
+                        <div class="dropdown-item" onclick="newFile('txt')" title="Create New File">New File</div>
+                        <div class="dropdown-item" onclick="newFile('html')" title="Create New HTML File">New HTML File</div>
+                        <div class="dropdown-item" onclick="openFile()" title="Open Local File">Open File</div>
+                        <div class="dropdown-item" onclick="saveFile()" title="Save File">Save File</div>
+                        <div class="dropdown-item" onclick="saveFileAs()" title="Save File As">Save File As</div>
+                        <a href="https://baliramgadle.netlify.app" target="_blank" class="page-links"><div class="dropdown-item" title="Contact Developer">Contact</div></a>
+                        <a href="Help.html" target="_blank" class="page-links"><div class="dropdown-item"  title="Help / Guide">Help</div></a>
+                    </div>
+                    <!-- input:file for open file opration -->
+                    <input type="file" id="fileInput" style="display:none"
+                        accept=".txt, .html, .css, .js, .java, .php, .c, .cpp, .json, .xml" />
+                </div>
+
+                <!-- change font-size menu -->
+                <div class="menu-item" onclick="toggleDropdown('fontMenu')" title="Editor Font Size">F-Size
+                    <div class="dropdown" id="fontMenu">
+                        <div class="dropdown-item font" onclick="changeFont('12px')">12px</div>
+                        <div class="dropdown-item font" onclick="changeFont('14px')">14px</div>
+                        <div class="dropdown-item font" onclick="changeFont('16px')">16px &check;</div>
+                        <div class="dropdown-item font" onclick="changeFont('18px')">18px</div>
+                        <div class="dropdown-item font" onclick="changeFont('20px')">20px</div>
+                        <div class="dropdown-item font" onclick="changeFont('24px')">24px</div>
+                        <div class="dropdown-item font" onclick="changeFont('28px')">28px</div>
+                        <div class="dropdown-item font" onclick="changeFont('32px')">32px</div>
+                        <div class="dropdown-item font" onclick="changeFont('36px')">36px</div>
+                        <div class="dropdown-item font" onclick="changeFont('40px')">40px</div>
+                    </div>
+                </div>
+
+                <!-- More Menu -->
+                <div class="menu-item" onclick="toggleDropdown('moreMenu')">More
+                    <div class="dropdown" id="moreMenu">
+                        <!-- reset theme option -->
+                        <div class="dropdown-item" title="Reset Theme to Default" onclick="resetTheme()">Reset Theme</div>
+                        <!-- theme1 color option -->
+                        <div class="dropdown-item" title="Theme Color - 1">
+                            <label for="theme-1">Theme - 1 &nbsp;</label>
+                            <input type="color" id="theme-1" class="theme">
+                        </div>
+                        <!-- theme2 color option -->
+                        <div class="dropdown-item" title="Theme Color - 2">
+                            <label for="theme-2">Theme - 2 &nbsp;</label>
+                            <input type="color" id="theme-2" class="theme">
+                        </div>
+                        <!-- text color option -->
+                        <div class="dropdown-item" title="Editor Text Color">
+                            <label for="color">Text color &nbsp;</label>
+                            <input type="color" id="color">
+                        </div>
+                        <!-- bgcolor option -->
+                        <div class="dropdown-item">
+                            <label for="bgcolor" title="Editor Background Color">Bg - color &nbsp;</label>
+                            <input type="color" id="bgcolor">
+                        </div>
+                        <!-- spell checker option-->
+                        <div class="dropdown-item" id="spell-checker" onclick="spellChecker() "
+                            title="Enable / Disable Spell checker">Spell Check</div>
+                        <!-- split mode HTML live preview -->
+                        <div class="dropdown-item" id="split-button" title="HTML Live Preview "
+                            onclick="toggleSplitMode()">Split View</div>
+                        <!-- find-replace option -->
+                        <div class="dropdown-item find-replace" onclick="findReplaceDialogue()"
+                            title="Find Replace Text">Find-Replace</div>
+                        <div class="dropdown-item" onclick="wordCount()" title="Count words, Characters">Word Count</div>
+                    </div>
+                </div>
+
+                <!-- find-replace dialogue -->
+                <div id="find-replace-dialogue" title="Drag to move">
+                    <input type="text" id="find-text" placeholder="Find text...">
+                    <br>
+                    <input type="text" id="replace-text" placeholder="Replace with...">
+                    <br>
+                    <span class="button-wrapper">
+                        <button onclick="find()">Find</button>
+                        <button onclick="replace()">Replace</button>
+                        <button onclick="replaceAll()">Replace All</button>
+                        <button onclick="closeFindReplaceDialogue()">Close</button>
+                    </span>
+                </div>
+
+                <!-- prompt dialogue -->
+                <div id="custom-prompt" title="Drag to move">
+                    <div id="prompt-message"></div>
+                    <input type="text" id="prompt-value" placeholder="File title...">
+                    <button id="ok-prompt">Save</button>
+                    <button id="no-prompt">Cancel</button>
+                </div>
+
+                <!-- alert dialogue -->
+                <div id="custom-alert" title="Drag to move">
+                    <div id="alert-message"></div>
+                    <button id="ok-alert">Ok</button>
+                </div>
+
+                <!-- confirm dialogue -->
+                <div id="custom-confirm" title="Drag to move">
+                    <div id="confirm-message"></div>
+                    <button id="ok-confirm">Proceed</button>
+                    <button id="no-confirm">Cancel</button>
+                </div>
+            </span>
+
+            <!-- run, refresh, clear button wrapper -->
+            <span class="button-wrapper">
+                <div title="Clear Text" onclick="clearCode();" class="btn">Clear</div>
+                <div title="Run Html, CSS, Js" onclick="run();reloadRun();" class="btn" id="run">Run</div>
+            </span>
+
+        </div>
+
+        <!-- tab container -->
+        <div class="tab-container">
+            <div id="tabs" class="tabs"></div>
+            <span class="new-tab-btn" title="New Tab" onclick="newFile(' ');">+</span>
+            <span class="new-tab-btn" title="Close All Tabs" onclick="clearTabs();">C</span>
+        </div>
+
+        <!-- workspace main block-->
+        <div class="workspace">
+            <div class="code-field-container">
+                <div class="line-numbers" id="line-numbers">1</div>
+                <textarea rows="5" spellcheck="false" class="code-field" id="code-field" onkeyup="updateLineNumbers();"
+                    placeholder="Write here..."></textarea>
+                <div class="text-represent" id="text-represent"></div>
+            </div>
+        </div>
+
+    </div>
+    <!-- resizer for split screen -->
+    <div class="resizer" id="resizer" title="Drag to resize"></div>
+    <!-- Output screen -->
+    <div id="output-screen">
+        <div class="output-container">
+
+            <!-- ouput bar -->
+            <div class="output-bar" id="output-bar">
+                <span id="title" title="title">Untitled</span>
+                <span class="button-wrapper">
+                    <div title="Refresh" onclick="run();reloadRun();" class="btn">&#10227;</div>
+                    <div title="Editor" class="btn" id="edit" onclick="reload()">Edit&nbsp;&lt;/&gt;</div>
+                </span>
+            </div>
+
+            <!-- iframe for output content -->
+            <div id="iframe-container">
+                <iframe id="output-frame" style="width: 100%; border: 1px solid white;"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- script linkage -->
+    <script src="script1.js"></script>
+    <script src="script2.js"></script>
+    <script src="script3.js"></script>
+    <script src="script4.js"></script>
+</body>
+
+</html>

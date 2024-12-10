@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>PassionTextEditor Help</title>
+    <link rel="stylesheet" href="passiontexteditorstyle.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0%;
+            margin: 0%;
+        }
+
+        .help {
+            overflow-y: scroll;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            height: 100vh;
+        }
+
+        header {
+            width: 100%;
+            background-color: var(--bg);
+            color: var(--theme1);
+            padding: 10px;
+            text-align: center;
+            font-size: clamp(20px, 5vw, 30px);
+            font-weight: bold;
+        }
+
+        .container {
+            width: 90vw;
+            max-width: 1000px;
+            margin: 10px auto;
+            padding: 20px;
+            background-color: var(--theme2);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px var(--txt);
+            color: var(--theme1);
+        }
+
+        .button-bar {
+            text-align: right;
+            margin-bottom: 20px;
+            margin: 20px -15px;
+            padding: 0;
+        }
+
+        .button-bar .btn {
+            margin-right: 10px;
+        }
+
+        .btn:hover {
+            border: 1px solid var(--theme1);
+            background-color: var(--theme1);
+            color: var(--theme2);
+        }
+
+        h2 {
+            color: var(--theme1);
+            margin-top: 40px;
+            border-bottom: 2px solid var(--bg);
+            padding-bottom: 5px;
+        }
+
+        p,
+        ul {
+            line-height: 1.8;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 40px;
+        }
+
+        ul li::marker {
+            color: var(--theme1);
+        }
+
+        footer {
+            background-color: var(--bg);
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            color: var(--theme1);
+        }
+    </style>
+</head>
+
+<body class="help">
+
+    <header>
+        PassionTextEditor Help Guide
+    </header>
+
+    <div class="container">
+        <div class="button-bar">
+            <a href="index.html" class="btn">Back to Editor</a>
+            <a href="https://baliramgadle.netlify.app" target="_blank" class="btn">Contact Developer</a>
+        </div>
+
+        <h2>Introduction</h2>
+        <p>Welcome to <strong>PassionTextEditor</strong>, a customizable, highly powerful and smart text editor built
+            for
+            coding and writing tasks. This documentation will guide you through all the features and functionalities of
+            the editor, ensuring a smooth and productive experience.</p>
+
+        <h2>1. File Menu</h2>
+        <ul>
+            <li><strong>New File:</strong> Opens a new blank editor for starting a new file.</li>
+            <li><strong>New HTML File:</strong> Creates a new HTML file with the basic structure pre-filled. Use the
+                <code>(! + Enter)</code> shortcut to insert a basic HTML structure, only works with blank file.
+            </li>
+            <li><strong>Open File:</strong> Allows opening a file from your computer (supports HTML, CSS, JavaScript,
+                Java, XML, and plain text files).</li>
+            <li><strong>Save File:</strong> Saves the current file. If no filename is provided, a prompt asks for one.
+                Default auto filled from file text.</li>
+            <li><strong>Save File As:</strong> Saves the current file under a new name (By default taken from file
+                text). Always prompts for a filename.</li>
+            <li><strong>Contact:</strong> Shows Developer's contact information.</li>
+            <li><strong>Help:</strong> Opens this help document for reference.</li>
+        </ul>
+
+        <h2>2. Font-Size Menu</h2>
+        <ul>
+            <li>Allows you to change the font size in the editor for better readability. You can choose between 12px to
+                40px.</li>
+        </ul>
+
+        <h2>3. More Menu</h2>
+        <ul>
+            <li><strong>Reset Theme:</strong> Reset theme to default</li>
+            <li><strong>Theme Color 1 & Theme Color 2:</strong> Select customized theme colors for the editor interface.
+            </li>
+            <li><strong>Editor Text Color:</strong> Customize the text color within the editor.</li>
+            <li><strong>Editor Background Customize:</strong> Change editor background color. This setting for all color
+                and theme customizations is restored automatically on reopening the editor.</li>
+            <li><strong>Spell Checker Toggle:</strong> Turn the spell checker on or off.</li>
+            <li><strong>Split Mode (Live HTML Preview):</strong> Split the editor to show a live HTML preview as you
+                code. Changes are reflected immediately in the preview window. Split screen is resizable.</li>
+            <li><strong>Find-Replace:</strong> Use this feature to find and replace specific text within the editor. A
+                custom dialog box supports this functionality.</li>
+            <li><strong>Word-Letter-Alphabet-Numbers Count:</strong> Custom Alert dialogue box will show count of words,
+                letters(with or without white space), special character, alphabets, lines and numbers in the file.</li>
+            <li><strong>Reload Button:</strong> Refreshes the editor screen while keeping the data intact.</li>
+            <li><strong>Clear Text Button:</strong> Clears all content in the editor opened tab. A confirmation dialog
+                ensures you don't accidentally delete your work.</li>
+            <li><strong>Run HTML Button (Full Screen):</strong> Runs your HTML code in a full-screen preview mode for
+                live output.</li>
+        </ul>
+
+        <h2>4. Tab Management</h2>
+        <ul>
+            <li><strong>Multi-Tab File Support:</strong> Open and manage multiple files in different tabs
+                simultaneously.</li>
+            <li><strong>Add New Tab:</strong> Opens a new tab to create or edit another file.</li>
+            <li><strong>Close Tab:</strong> Closes the currently open tab. Confirms before closing.</li>
+            <li><strong>Close All Tabs:</strong> Closes all open tabs. Confirms before closing.</li>
+            <li><strong>Open Tabs Local Storage Support:</strong> Automatically saves the state of open tabs. When
+                reopening the editor, all tabs and their content are restored.</li>
+        </ul>
+
+        <h2>5. Dialogues</h2>
+        <ul>
+            <li><strong>Draggable Custom dialogues with smooth transitions:</strong></li>
+            <li><strong>Prompt for Filename When Saving:</strong> Always prompts for a filename if one is not provided
+                before saving.</li>
+            <li><strong>Custom Alert, Prompt, and Confirm:</strong> The editor uses custom-styled dialogues for alerts,
+                prompts, and confirmations.</li>
+            <li><strong>Find-Replace Dialogue Box:</strong> A custom interface for the find-replace feature to make it
+                more user-friendly. Find function searches for the text inside and line numbers of all the occurences
+                and displays via custom alert.
+                Replace function replaces the first occurence of the searched text and displays line number via alert.
+                Replace all function replace the
+                all occurences of searched text and displays all line numbers via alert.
+            </li>
+            <li><strong>Custom Confirm for Clear Text:</strong> A custom confirmation box appears before clearing all
+                text to prevent accidental loss of content.</li>
+        </ul>
+
+        <h2>6. Editor Functionalities</h2>
+        <ul>
+            <li><strong>Auto Line Numbers:</strong> Automatically displays line numbers in the editor.</li>
+            <li><strong>Auto Live Tab Titles from Text:</strong> The title of each tab updates based on the content of
+                the file. This helps identify different files at a glance.</li>
+            <li><strong>Auto Filename Support:</strong> Automatically takes the filename from file content for saving
+                file.</li>
+            <li><strong>Support for HTML, CSS, JS:</strong> The editor supports HTML, CSS, and JavaScript coding. HTML
+                (internal CSS, JS) files can be run directly for a live preview.</li>
+            <li><strong>Auto Indentation:</strong> The editor automatically adjusts indentation for better code
+                readability.</li>
+            <li><strong>Open-Close Tag Autocomplete:</strong> Typing an opening HTML tag auto-generates the
+                corresponding closing tag. Self-closing tags are also supported.</li>
+            <li><strong>Open-Close Bracket Auto Insert/Delete:</strong> Automatically inserts the closing bracket when
+                an opening bracket is typed. Deleting an opening bracket also deletes the corresponding closing bracket.
+            </li>
+        </ul>
+
+        <h2>7. Shorthand Support</h2>
+        <ul>
+            <li><strong>Class and ID Shorthand:</strong>" Typing `.classname` generates `&lt;div
+                class="classname"&gt;&lt;/div&gt;`. Typing `#idname` generates `&lt;div id="idname"&gt;&lt;/div&gt;`
+                </pre>."</li>
+            <li><strong>Tag with Class and ID:</strong> Typing `tag.class#id` generates `&lt;tag class="class"
+                id="id"&gt;&lt;/tag&gt;`.</li>
+            <li><strong>Input Tags Shorthand:</strong> Typing `input:type.class#id` generates `&lt;input type="type"
+                class="class" id="id" /&gt;`. The default type is set to `text` if not specified.</li>
+            <li><strong>Tag ID Shorthand:</strong>`tag#id` generates `&lt;tag id="id"&gt;&lt;/tag&gt;</li>
+            <li><strong>Tag Class Shorthand:</strong>`tag.class` generates `&lt;tag class="class"&gt;&lt;/tag&gt;</li>
+            <li><strong>Self Closing Tags Supported:</strong>All shorthands supported for self closing tags also.</li>
+            <li>Adds space after ':' automatically except for (last word is 'input' or last char is ':'), this will help
+                in formating style properties.</li>
+            <li>Adds space before-after '=' key in valid cases</li>
+            <li>Inserting '=' after html attributes automatically inserts double quoutes.</li>
+        </ul>
+
+        <h2>8. Other Features</h2>
+        <ul>
+            <li><strong>Scroll Support for Tabs:</strong> Scroll through the open tabs using the mouse wheel.</li>
+            <li><strong>Reload, Edit Button for Output Screen:</strong> Allows you to refresh the live preview without
+                losing the content in the editor and Edit for back to editor.</li>
+            <li>Dropdown menus with smooth transitions.</li>
+            <li>Text representator at right side highlights the respective text in editor on selection. Also clicking on
+                representator editor will scroll depending on the height percentage where clicked.</li>
+        </ul>
+    </div>
+
+    <footer>
+        &copy; 2024 PassionTextEditor. All Rights Reserved.
+    </footer>
+    <script src="help.js"></script>
+</body>
+
+</html>
